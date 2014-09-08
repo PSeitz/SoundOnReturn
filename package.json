@@ -1,0 +1,30 @@
+{
+  "name": "SoundOnReturn",
+  "version": "0.1.0",
+  "description": "Plays sound on a yamaha receiver, when mobile phone connects with wlan",
+  "main": "sor-starter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/PSeitz/SoundOnReturn.git"
+  },
+  "keywords": [
+    "yamaha",
+    "dhcp",
+    "homeautomation",
+    "on",
+    "return",
+    "tadaima"
+  ],
+  "author": "Pascal Seitz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PSeitz/SoundOnReturn/issues"
+  },
+  "homepage": "https://github.com/PSeitz/SoundOnReturn",
+  "dependencies": {
+    "Yamaha-Network-API": "git+https://git@github.com/PSeitz/Yamaha-Network-API.git"
+  }
+}
