@@ -8,7 +8,7 @@ Plays sound on a yamaha receiver, when mobile phone connects with wlan
 
 ##### Commandline
 
-Edit the sor-conf.json file and enter you yamaha ip and a whitelist of mac adresses(format:"FF:FF:FF:FF:FF:FF")
+Edit the sor-conf.json file and enter you yamaha ip and a whitelist of mac adresses (format: "FF:FF:FF:FF:FF:FF")
 
     node sor-starter.js
     or
