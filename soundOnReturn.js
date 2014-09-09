@@ -1,4 +1,4 @@
-var DHCP_Module = require("./dhcp_callback_module");
+var DHCP_Module = require("DHCP-Broadcast-Callback");
 var YamahaAPI = require("Yamaha-Network-API");
 
 //var yamaha = new YamahaAPI("192.168.0.25");
