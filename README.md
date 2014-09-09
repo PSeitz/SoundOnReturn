@@ -9,7 +9,7 @@ Plays sound on a yamaha receiver, when mobile phone connects with wlan
 
 ## Commandline-Usage
 
-Edit the sor-conf.json file and enter you yamaha ip and a whitelist of mac adresses (format: "FF:FF:FF:FF:FF:FF")
+Edit the sor-conf.json file. If the mac_adresses entry is deleted, all devices will issue the command
 
 ```json
 {
