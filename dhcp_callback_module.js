@@ -22,7 +22,7 @@ function Service(catchMacAdress) {
     server.on('message', function(msg, rinfo) {
         var mac =  readAddressRaw(msg, 28, msg.readUInt8(2));
         console.log(mac);
-        if (catchMacAdress.indexOf(mac) >= 0 ) {
+        if (!catchMacAdress || catchMacAdress.indexOf(mac) >= 0 ) {
             self.emit("broadcast", mac);
         }        
     });
