@@ -18,10 +18,8 @@ Edit the sor-conf.json file and enter you yamaha ip and a whitelist of mac adres
 }
 ```
     
-
     node sor-starter.js
-Or use something like forever, to spwan process in background
-    forever start sor-starter
+
   
 
 ## API Usage
