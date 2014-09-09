@@ -16,19 +16,35 @@ function SoundOnReturn(config){
 
 	dhcp.on("broadcast", function(macadress){
 		
-		yamaha.powerOn().done(function(){
+		yamaha.isOn(function(isOn){
+			if (isOn) {
+				console.log("Yamaha is already on, do nothing"); 
+				return;
+			}
 
-			console.log("powerOn");
-			yamaha.setMainInputTo("NET RADIO").done( function(){
-				console.log("Switched to net radio");
-				yamaha.selectWebRadioListWithNumber(1).done(function(){
-					console.log("Selected Favorites");
-					yamaha.selectWebRadioListWithNumber(1).done(function(){
-					});
+			yamaha.powerOn().done(function(){
+
+				yamaha.getCurrentInput().done(function(input){
+
+					// if (input) {};
+
 				});
 
+				console.log("powerOn");
+				yamaha.setMainInputTo("NET RADIO").done( function(){
+					console.log("Switched to net radio");
+					yamaha.selectWebRadioListWithNumber(1).done(function(){
+						console.log("Selected Favorites");
+						yamaha.selectWebRadioListWithNumber(1).done(function(){
+						});
+					});
+
+				});
 			});
+
 		});
+
+		
 
 
 	});
