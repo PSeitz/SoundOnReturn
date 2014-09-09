@@ -5,7 +5,7 @@ Plays sound on a yamaha receiver, when mobile phone connects with wlan
 
 ## Prerequisite
 - [Install Nodejs](http://nodejs.org/)
-- Execute ´npm install´ in the directory, to download dependencies
+- Execute `npm install` in the directory, to download dependencies
 
 ## Commandline-Usage
 
