@@ -17,6 +17,7 @@ Edit the sor-conf.json file and enter you yamaha ip and a whitelist of mac adres
 	"mac_adresses":["FF:FF:FF:FF:FF:FF"]
 }
 ```
+Then start it with:
     
     node sor-starter.js
 
