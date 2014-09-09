@@ -36,30 +36,6 @@ function Service(catchMacAdress) {
     });
 
 
-    // events.EventEmitter.call(this);
-
-    // var self = this;
-
-    // var server = dhcpjs.createServer();
-    // server.on('message', function(m) {
-    //     console.log("BROADCAST");
-    //     if (m && m.chaddr) {
-            // if (catchMacAdress.indexOf(m.chaddr.address) >= 0 ) {
-            //     self.emit("broadcast", m.chaddr.address);
-            // }
-    //     }
-
-    //     console.log(m.chaddr.address);
-    // });
-
-
-
-    // server.on('listening', function(address) {
-    //     console.log('listening on ' + address);
-    // });
-
-    // server.bind();
-
 }
 
 // inherit events.EventEmitter
