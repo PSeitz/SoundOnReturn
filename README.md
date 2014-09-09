@@ -14,7 +14,7 @@ Edit the sor-conf.json file. If the mac_adresses entry is deleted, all devices w
 ```json
 {
     "yamaha_ip":"YAMAHA-IP Adress",
-	"mac_adresses":["FF:FF:FF:FF:FF:FF"]
+	"mac_adresses":["FF:FF:FF:FF:FF:FF","AA:AA:AA:AA:AA:AA"]
 }
 ```
 Then start it with:
