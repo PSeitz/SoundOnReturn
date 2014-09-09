@@ -1,4 +1,4 @@
 {
-	"yamaha_ip":"PUT YOUR YAMAHA IP HERE",
-	"mac_adresses":["MAC ADRESS OF PHONE"]
+	"yamaha_ip":"YAMAHA-IP Adress",
+    	"mac_adresses":["FF:FF:FF:FF:FF:FF"]
 }
