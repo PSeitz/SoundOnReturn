@@ -28,13 +28,32 @@ function SoundOnReturn(config){
 			console.log("Switching Receiver on"); 
 			yamaha.powerOn().done(function(){
 
-				// yamaha.getCurrentInput().done(function(input){
+				yamaha.getCurrentInput().done(function(input){
 
-				// 	// if (input) {};
+					if (input === "NET RADIO") {
+						yamaha.selectWebRadioListWithNumber(1).done(function(){
+							console.log("Switched to Favorites");
+							yamaha.selectWebRadioListWithNumber(1).done(function(){
+							});
+						});
+					}else{
+						yamaha.setMainInputTo("NET RADIO").done( function(){
+							console.log("Switched to net radio");
+							yamaha.selectWebRadioListWithNumber(1).done(function(){
+								console.log("Switched to Favorites");
+								yamaha.selectWebRadioListWithNumber(1).done(function(){
+								});
+							});
+		
+						});
+					}
 
-				// });
+				
+					
+					
+				});
 
-				console.log("powerOn");
+				/*console.log("powerOn");
 				yamaha.setMainInputTo("NET RADIO").done( function(){
 					console.log("Switched to net radio");
 					yamaha.selectWebRadioListWithNumber(1).done(function(){
@@ -43,7 +62,7 @@ function SoundOnReturn(config){
 						});
 					});
 
-				});
+				});*/
 			});
 
 		});
