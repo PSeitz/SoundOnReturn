@@ -24,7 +24,7 @@ Then start it with:
 
   
 
-##### API Usage
+##### Usage From Other Node Modules
 
     var SoundOnReturn = require('./SoundOnReturn.js');
     new SoundOnReturn({
