@@ -8,7 +8,7 @@ Plays sound on a yamaha receiver, when mobile phone connects with wlan
 - Execute `npm install` in the directory, to download dependencies
 
 ## Usage
-##### Commandline-Usage
+##### Start From The CommandLine
 
 Edit the sor-conf.json file. If the mac_adresses entry is deleted, all devices will issue the command
 
