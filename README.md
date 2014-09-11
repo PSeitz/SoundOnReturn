@@ -19,9 +19,9 @@ Plays sound on a yamaha receiver, when mobile phone connects with wlan
 ## Usage
 ##### Start From The CommandLine
 
-Create a config file conf.json with selected options. Then start it with:
+Create a config file, e.g. conf.json with selected options. Then start it with:
     
-    node sor-starter.js -c /path/to/file
+    node sor-starter.js -c /path/to/conf.json
 
 ```json
 {
