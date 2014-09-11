@@ -81,14 +81,19 @@ function ReceiverPoweredOn(yamaha, config) {
 
 
 function switchToSound(yamaha, config) {
-	if (config.selectWebRadioFavoriteChannel) {
-		yamaha.selectWebRadioListWithNumber(1).done(function() {
-			console.log("Selected Favorites");
-			yamaha.selectWebRadioListWithNumber(config.selectWebRadioFavoriteChannel).done(function() {});
-		});
-	}else if (config.selectSongNumberFromUsb){
-		yamaha.selectUSBListWithNumber(config.selectSongNumberFromUsb).done(function() {});
-	}
+
+	//TODO: Wait one sec, in future loop check receiver state
+	setTimeout(function(){
+		if (config.selectWebRadioFavoriteChannel) {
+			yamaha.selectWebRadioListWithNumber(1).done(function() {
+				console.log("Selected Favorites");
+				yamaha.selectWebRadioListWithNumber(config.selectWebRadioFavoriteChannel).done(function() {});
+			});
+		}else if (config.selectSongNumberFromUsb){
+			yamaha.selectUSBListWithNumber(config.selectSongNumberFromUsb).done(function() {});
+		}
+
+	}, 1000);
 	
 }
 
