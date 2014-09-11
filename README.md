@@ -12,7 +12,6 @@ Plays sound on a yamaha receiver, when mobile phone connects with wlan
 - yamaha_ip 
 - mac_adresses
 - volume
-
 - selectSongNumberFromUsb
 - selectWebRadioFavoriteChannel
 
