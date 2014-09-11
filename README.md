@@ -9,7 +9,7 @@ Plays sound on a yamaha receiver, when mobile phone connects with wlan
 
 ## Available Options
 
-- yamaha_ip 
+- ip 
 - mac_adresses
 - volume
 - selectSongNumberFromUsb
@@ -25,7 +25,7 @@ Create a config file conf.json with selected options. Then start it with:
 
 ```json
 {
-    "yamaha_ip":"YAMAHA-IP Adress",
+    "ip":"Yamaha Ip-Adress",
 	"mac_adresses":["FF:FF:FF:FF:FF:FF","AA:AA:AA:AA:AA:AA"],
 	"selectWebRadioFavoriteChannel":1
 }
