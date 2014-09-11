@@ -2,8 +2,9 @@
   "name": "SoundOnReturn",
   "version": "0.1.0",
   "description": "Plays sound on a yamaha receiver, when mobile phone connects with wlan",
-  "main": "sor-starter.js",
+  "main": "soundOnReturn.js",
   "scripts": {
+    "start": "node sor-starter.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
