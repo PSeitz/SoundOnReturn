@@ -19,17 +19,18 @@ Plays sound on a yamaha receiver, when mobile phone connects with wlan
 ## Usage
 ##### Start From The CommandLine
 
-Edit the sor-conf.json file. If the mac_adresses entry is deleted, all devices will issue the command
+Create a config file conf.json with selected options. Then start it with:
+    
+    node sor-starter.js -c /path/to/file
 
 ```json
 {
     "yamaha_ip":"YAMAHA-IP Adress",
-	"mac_adresses":["FF:FF:FF:FF:FF:FF","AA:AA:AA:AA:AA:AA"]
+	"mac_adresses":["FF:FF:FF:FF:FF:FF","AA:AA:AA:AA:AA:AA"],
+	"selectWebRadioFavoriteChannel":1
 }
 ```
-Then start it with:
-    
-    node sor-starter.js
+
 
   
 
