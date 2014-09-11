@@ -35,9 +35,10 @@ Create a config file, e.g. conf.json with selected options. Then start it with:
   
 
 ##### Usage From Other Node Modules
-
+```javascript
     var SoundOnReturn = require('./SoundOnReturn.js');
     new SoundOnReturn({
       yamaha_ip:"192.168.0.100",
       mac_adresses:"FF:FF:FF:FF:FF:FF" // Whitelist of mac-adresses
     });
+```
