@@ -1,6 +1,6 @@
 {
   "name": "SoundOnReturn",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Plays sound on a yamaha receiver, when mobile phone connects with wlan",
   "main": "soundOnReturn.js",
   "scripts": {
