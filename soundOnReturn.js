@@ -37,7 +37,7 @@ function SoundOnReturn(config) {
 	}
 
 	var dhcp = new DHCP_Module(config.mac_adresses);
-	var yamaha = new YamahaAPI(config.ip);
+	var yamaha = new YamahaAPI(config.ip, config.delay);
 
 	dhcp.on("broadcast", function(macadress) {
 		console.log("Broadcast From:"+macadress);
@@ -81,19 +81,14 @@ function ReceiverPoweredOn(yamaha, config) {
 
 
 function switchToSound(yamaha, config) {
-
-	//TODO: Wait one sec, in future loop check receiver state
-	setTimeout(function(){
-		if (config.selectWebRadioFavoriteChannel) {
-			yamaha.selectWebRadioListWithNumber(1).done(function() {
-				console.log("Selected Favorites");
-				yamaha.selectWebRadioListWithNumber(config.selectWebRadioFavoriteChannel).done(function() {});
-			});
-		}else if (config.selectSongNumberFromUsb){
-			yamaha.selectUSBListWithNumber(config.selectSongNumberFromUsb).done(function() {});
-		}
-
-	}, 1000);
+	if (config.selectWebRadioFavoriteChannel) {
+		yamaha.selectWebRadioListWithNumber(1).done(function() {
+			console.log("Selected Favorites");
+			yamaha.selectWebRadioListWithNumber(config.selectWebRadioFavoriteChannel).done(function() {});
+		});
+	}else if (config.selectSongNumberFromUsb){
+		yamaha.selectUSBListWithNumber(config.selectSongNumberFromUsb).done(function() {});
+	}
 	
 }
 
