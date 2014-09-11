@@ -5,69 +5,46 @@ var YamahaAPI = require("Yamaha-Network-API");
 
 //"90:72:40:6c:e1:bc"
 
-function SoundOnReturn(config){
-	
-	this.ip = config.yamaha_ip;
-	this.mac_adresses = config.mac_adresses;
 
+/*
+* config e.g.
+{
+	"yamaha_ip":"192.168.0.25",
+	"mac_adresses":["90:72:40:6c:e1:bc"],
+	"selectWebRadioFavoriteChannel": 1
+}
+*/
+function SoundOnReturn(config) {
 
-	var dhcp = new DHCP_Module(this.mac_adresses);
-	var yamaha = new YamahaAPI(this.ip);
+	config.ip = config.yamaha_ip;
+	config.mac_adresses = config.mac_adresses;
+	config.selectWebRadioFavoriteChannel = config.selectWebRadioFavoriteChannel || 1;
 
-	dhcp.on("broadcast", function(macadress){
-		console.log(macadress);
+	if (config.selectWebRadioFavoriteChannel)  config.inputChannel = "NET RADIO";
+	if (config.usbstick)  config.inputChannel = "USB";
 
+	if(!config.inputChannel) {
+		console.log("Choose favorite webradio channel or usbstick song");
+		return;
+	}
 
+	var dhcp = new DHCP_Module(config.mac_adresses);
+	var yamaha = new YamahaAPI(config.ip);
 
+	dhcp.on("broadcast", function(macadress) {
 
-		yamaha.isOn().done(function(isOn){
+		yamaha.isOn(function(isOn) {
 			if (isOn) {
-				console.log("Yamaha is already on, do nothing"); 
+				console.log("Yamaha is already on, do nothing");
 				return;
 			}
-			console.log("Switching Receiver on"); 
-			yamaha.powerOn().done(function(){
 
-				yamaha.getCurrentInput().done(function(input){
-
-					if (input === "NET RADIO") {
-						yamaha.selectWebRadioListWithNumber(1).done(function(){
-							console.log("Switched to Favorites");
-							yamaha.selectWebRadioListWithNumber(1).done(function(){
-							});
-						});
-					}else{
-						yamaha.setMainInputTo("NET RADIO").done( function(){
-							console.log("Switched to net radio");
-							yamaha.selectWebRadioListWithNumber(1).done(function(){
-								console.log("Switched to Favorites");
-								yamaha.selectWebRadioListWithNumber(1).done(function(){
-								});
-							});
-		
-						});
-					}
-
-				
-					
-					
-				});
-
-				/*console.log("powerOn");
-				yamaha.setMainInputTo("NET RADIO").done( function(){
-					console.log("Switched to net radio");
-					yamaha.selectWebRadioListWithNumber(1).done(function(){
-						console.log("Switched to Favorites");
-						yamaha.selectWebRadioListWithNumber(1).done(function(){
-						});
-					});
-
-				});*/
+			yamaha.powerOn().done(function() {
+				console.log("poweredOn");
+				ReceiverPoweredOn(yamaha, config);
 			});
 
 		});
-
-		
 
 
 	});
@@ -75,14 +52,42 @@ function SoundOnReturn(config){
 
 }
 
+function ReceiverPoweredOn(yamaha, config) {
+	yamaha.getCurrentInput().done(function(input) {
+
+		if (input === config.inputChannel) {
+			switchToSound(yamaha, config);
+		} else {
+			yamaha.setMainInputTo(config.inputChannel).done(function() {
+				switchToSound(yamaha, config);
+			});
+		}
+
+	});
+
+}
 
 
+function switchToSound(yamaha, config) {
+	console.log("Switched to net radio");
 
-function delay(delayInS, callAfterDelay){
-	return function(){
-		setTimeout(function(){
+	if (config.selectWebRadioFavoriteChannel) {
+		yamaha.selectWebRadioListWithNumber(1).done(function() {
+			console.log("Selected Favorites");
+			yamaha.selectWebRadioListWithNumber(config.selectWebRadioFavoriteChannel).done(function() {});
+		});
+	}else if (config.usbstick){
+		yamaha.selectUSBListWithNumber(config.usbstick).done(function() {});
+	}
+	
+}
+
+
+function delay(delayInS, callAfterDelay) {
+	return function() {
+		setTimeout(function() {
 			callAfterDelay();
-		}, delayInS*1000);
+		}, delayInS * 1000);
 	};
 }
 

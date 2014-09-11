@@ -1,4 +1,5 @@
 {
-	"yamaha_ip":"YAMAHA-IP Adress",
-    	"mac_adresses":["FF:FF:FF:FF:FF:FF"]
+	"yamaha_ip":"192.168.0.100",
+    "mac_adresses":["FF:FF:FF:FF:FF:FF"],
+	"selectWebRadioFavoriteChannel": 1
 }

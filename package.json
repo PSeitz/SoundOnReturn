@@ -26,6 +26,7 @@
   "homepage": "https://github.com/PSeitz/SoundOnReturn",
   "dependencies": {
     "Yamaha-Network-API": "git+https://git@github.com/PSeitz/Yamaha-Network-API.git",
-    "DHCP-Broadcast-Callback": "git+https://git@github.com/PSeitz/DHCP-Broadcast-Callback.git"
+    "DHCP-Broadcast-Callback": "git+https://git@github.com/PSeitz/DHCP-Broadcast-Callback.git",
+    "yargs": "~1.3.1"
   }
 }
