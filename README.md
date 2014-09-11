@@ -7,6 +7,16 @@ Plays sound on a yamaha receiver, when mobile phone connects with wlan
 - [Install Nodejs](http://nodejs.org/)
 - Execute `npm install` in the directory, to download dependencies
 
+## Available Options
+
+- yamaha_ip 
+- mac_adresses
+- volume
+
+- selectSongNumberFromUsb
+- selectWebRadioFavoriteChannel
+
+
 ## Usage
 ##### Start From The CommandLine
 
