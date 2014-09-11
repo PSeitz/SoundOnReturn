@@ -9,22 +9,30 @@ var YamahaAPI = require("Yamaha-Network-API");
 /*
 * config e.g.
 {
-	"yamaha_ip":"192.168.0.25",
+	"ip":"192.168.0.25",
 	"mac_adresses":["90:72:40:6c:e1:bc"],
-	"selectWebRadioFavoriteChannel": 1
+	"selectWebRadioFavoriteChannel": 1,
+
+	or
+	selectSongNumberFromUsb: 1
 }
 */
 function SoundOnReturn(config) {
 
-	config.ip = config.yamaha_ip;
+	if (!config.ip) {
+		console.log("Error: No ip adress for receiver provided");
+		return;
+	}
+
+	config.ip = config.ip;
 	config.mac_adresses = config.mac_adresses;
-	config.selectWebRadioFavoriteChannel = config.selectWebRadioFavoriteChannel || 1;
+	config.selectWebRadioFavoriteChannel = config.selectWebRadioFavoriteChannel;
 
 	if (config.selectWebRadioFavoriteChannel)  config.inputChannel = "NET RADIO";
-	if (config.usbstick)  config.inputChannel = "USB";
+	if (config.selectSongNumberFromUsb)  config.inputChannel = "USB";
 
 	if(!config.inputChannel) {
-		console.log("Choose favorite webradio channel or usbstick song");
+		console.log("Choose favorite webradio channel or selectSongNumberFromUsb song");
 		return;
 	}
 
@@ -32,8 +40,8 @@ function SoundOnReturn(config) {
 	var yamaha = new YamahaAPI(config.ip);
 
 	dhcp.on("broadcast", function(macadress) {
-
-		yamaha.isOn(function(isOn) {
+		console.log("Broadcast From:"+macadress);
+		yamaha.isOn().done(function(isOn) {
 			if (isOn) {
 				console.log("Yamaha is already on, do nothing");
 				return;
@@ -63,21 +71,23 @@ function ReceiverPoweredOn(yamaha, config) {
 			});
 		}
 
+		if (config.volume) {
+			yamaha.setVolumeTo(config.volume).done(function() {});
+		}
+
 	});
 
 }
 
 
 function switchToSound(yamaha, config) {
-	console.log("Switched to net radio");
-
 	if (config.selectWebRadioFavoriteChannel) {
 		yamaha.selectWebRadioListWithNumber(1).done(function() {
 			console.log("Selected Favorites");
 			yamaha.selectWebRadioListWithNumber(config.selectWebRadioFavoriteChannel).done(function() {});
 		});
-	}else if (config.usbstick){
-		yamaha.selectUSBListWithNumber(config.usbstick).done(function() {});
+	}else if (config.selectSongNumberFromUsb){
+		yamaha.selectUSBListWithNumber(config.selectSongNumberFromUsb).done(function() {});
 	}
 	
 }
