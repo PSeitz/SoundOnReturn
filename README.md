@@ -3,9 +3,9 @@ SoundOnReturn
 
 Plays sound on a yamaha receiver, when mobile phone connects with wlan
 
-## Prerequisite
+## Prerequisite/Inall
 - [Install Nodejs](http://nodejs.org/)
-- Execute `npm install` in the directory, to download dependencies
+- Execute `npm install soundonreturn`
 
 ## Available Options
 
