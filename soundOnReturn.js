@@ -82,12 +82,12 @@ function ReceiverPoweredOn(yamaha, config) {
 
 function switchToSound(yamaha, config) {
 	if (config.selectWebRadioFavoriteChannel) {
-		yamaha.selectWebRadioListWithNumber(1).done(function() {
+		yamaha.selectWebRadioListItem(1).done(function() {
 			console.log("Selected Favorites");
-			yamaha.selectWebRadioListWithNumber(config.selectWebRadioFavoriteChannel).done(function() {});
+			yamaha.selectWebRadioListItem(config.selectWebRadioFavoriteChannel).done(function() {});
 		});
 	}else if (config.selectSongNumberFromUsb){
-		yamaha.selectUSBListWithNumber(config.selectSongNumberFromUsb).done(function() {});
+		yamaha.selectUSBListItem(config.selectSongNumberFromUsb).done(function() {});
 	}
 	
 }
