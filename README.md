@@ -10,7 +10,7 @@ Plays sound on a yamaha receiver, when mobile phone connects with wlan
 ## Available Options
 
 - ip 
-- mac_adresses
+- mac_adresses - Whitelist of mac-adresses, all accepted if empty
 - volume
 - selectSongNumberFromUsb
 - selectWebRadioFavoriteChannel
@@ -26,7 +26,7 @@ Create a config file, e.g. conf.json with selected options. Then start it with:
 ```json
 {
     "ip":"Yamaha Ip-Adress",
-	"mac_adresses":["FF:FF:FF:FF:FF:FF","AA:AA:AA:AA:AA:AA"],
+	"mac_adresses":["FF:FF:FF:FF:FF:FF","AA:AA:AA:AA:AA:AA"], // Whitelist of mac-adresses, all if accepted empty
 	"selectWebRadioFavoriteChannel":1
 }
 ```
@@ -36,9 +36,9 @@ Create a config file, e.g. conf.json with selected options. Then start it with:
 
 ##### Usage From Other Node Modules
 ```javascript
-    var SoundOnReturn = require('./SoundOnReturn.js');
+    var SoundOnReturn = require('soundonreturn.js');
     new SoundOnReturn({
       yamaha_ip:"192.168.0.100",
-      mac_adresses:"FF:FF:FF:FF:FF:FF" // Whitelist of mac-adresses
+      mac_adresses:["FF:FF:FF:FF:FF:FF"] // Whitelist of mac-adresses, all accepted if empty
     });
 ```
