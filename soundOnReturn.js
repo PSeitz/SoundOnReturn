@@ -84,7 +84,9 @@ function switchToSound(yamaha, config) {
 	if (config.selectWebRadioFavoriteChannel) {
 		yamaha.selectWebRadioListItem(1).done(function() {
 			console.log("Selected Favorites");
-			yamaha.selectWebRadioListItem(config.selectWebRadioFavoriteChannel).done(function() {});
+			yamaha.whenMenuReady().done(function(){
+				yamaha.selectWebRadioListItem(config.selectWebRadioFavoriteChannel).done(function() {});
+			});
 		});
 	}else if (config.selectSongNumberFromUsb){
 		yamaha.selectUSBListItem(config.selectSongNumberFromUsb).done(function() {});
