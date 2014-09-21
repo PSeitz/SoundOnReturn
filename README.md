@@ -28,6 +28,7 @@ Create a config file, e.g. conf.json with selected options. Then start it with:
     "ip":"Yamaha Ip-Adress",
 	"mac_adresses":["FF:FF:FF:FF:FF:FF","AA:AA:AA:AA:AA:AA"], // Whitelist of mac-adresses, all if accepted empty
 	"selectWebRadioFavoriteChannel":1
+	"activationHours": "12-24"
 }
 ```
 
@@ -40,6 +41,7 @@ Create a config file, e.g. conf.json with selected options. Then start it with:
 new SoundOnReturn({
     ip:"192.168.0.25",
     selectWebRadioFavoriteChannel:1,
-    mac_adresses:["90:72:40:6c:e1:bc"] // Whitelist of mac-adresses, all accepted if empty
+    mac_adresses:["90:72:40:6c:e1:bc"] // Whitelist of mac-adresses, all accepted if empty,
+    activationHours: "12-24"
 });
 ```
