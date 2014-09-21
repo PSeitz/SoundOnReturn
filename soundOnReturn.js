@@ -37,7 +37,7 @@ function SoundOnReturn(config) {
 		return;
 	}
 
-	var dhcp = new DHCP_Module(config.mac_adresses);
+	var dhcp = new DHCP_Module({catchMacAdress:config.mac_adresses});
 	var yamaha = new YamahaAPI(config.ip, config.delay);
 
 	dhcp.on("broadcast", function(macadress) {
