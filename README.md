@@ -26,7 +26,7 @@ Create a config file, e.g. conf.json with selected options. Then start it with:
 ```json
 {
     "ip":"Yamaha Ip-Adress",
-	"mac_adresses":["FF:FF:FF:FF:FF:FF","AA:AA:AA:AA:AA:AA"], // Whitelist of mac-adresses, all if accepted empty
+	"mac_adresses":["FF:FF:FF:FF:FF:FF","AA:AA:AA:AA:AA:AA"], // Whitelist of mac-adresses, all if empty
 	"selectWebRadioFavoriteChannel":1
 	"activationHours": "12-24"
 }
