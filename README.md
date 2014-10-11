@@ -11,7 +11,7 @@ Plays sound on a yamaha receiver, when mobile phone connects with wlan
 
 - ip 
 - mac_adresses - Whitelist of mac-adresses, all accepted if empty
-- volume
+- volume (e.g. -500)
 - selectSongNumberFromUsb
 - selectWebRadioFavoriteChannel
 
